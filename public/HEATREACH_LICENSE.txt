@@ -22,9 +22,10 @@ SOFTWARE.
 
 Scope of this grant
 
-This MIT grant applies only to original HeatReach contributions owned by the
-authorizing HeatReach Contributors. It does not relicense third-party libraries,
-fonts, provider data, or externally supplied material. The illustrative fixture
-and Stitch-derived design/supplied inputs are excluded from this grant pending
-confirmation of their rights and permitted terms. See docs/AI_AND_ATTRIBUTION.md
-and public/THIRD_PARTY_NOTICES.txt.
+This MIT grant applies only to rights the authorizing HeatReach Contributors
+hold and are authorized to license in their HeatReach contributions, including
+AI-assisted code, the master specification, illustrative fixture and adapted
+Stitch design. It does not assert copyright in otherwise unprotectable generated
+material or relicense third-party libraries, fonts, provider data or other
+third-party material. Those retain their own terms. See docs/RIGHTS_REVIEW.md,
+docs/AI_AND_ATTRIBUTION.md and public/THIRD_PARTY_NOTICES.txt.

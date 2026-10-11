@@ -6,7 +6,7 @@ OpenAI Codex assisted with reading the user-provided handoff, implementing the e
 
 The user-provided Word strategy dossier was read in full, including tables, using document extraction; its guidance and differences from the newer master specification are recorded in `DOSSIER_RECONCILIATION.md`. The original private handoff was not automatically published.
 
-The user supplied a Google Stitch UI export, used as the visual reference for the redesign documented in `DESIGN.md`. Its demonstration scripts, fabricated content and hotlinked imagery were not shipped. No AI-generated raster imagery, stock images, externally hosted fonts or fake cloud screenshots are used. The logo and icons are native SVG/HTML. The default map is fixture-generated SVG; optional geographic maps use attributed OSM tiles. Screenshots were captured from the actual running local application with Playwright. Automated geographic tests use invented records with tile requests blocked; these are not field evidence.
+The team confirmed that ChatGPT generated the master specification and its illustrative fixture specifically for HeatReach. Google Stitch generated the project UI, and the user supplied its export, used as the visual reference for the redesign documented in `DESIGN.md`. Its demonstration scripts, fabricated content and hotlinked imagery were not shipped. No AI-generated raster imagery, stock images, externally hosted fonts or fake cloud screenshots are used. The logo and icons are native SVG/HTML. The default map is fixture-generated SVG; optional geographic maps use attributed OSM tiles. Screenshots were captured from the actual running local application with Playwright. Automated geographic tests use invented records with tile requests blocked; these are not field evidence.
 
 ## Dependencies
 
@@ -20,7 +20,7 @@ React Leaflet/core retain Hippocratic-2.1 use conditions, including human-rights
 
 ## Input credit and external references
 
-- Synthetic fixture and project handoff: provided by the user/team in `context/`. Preserve original values and confirm redistribution rights with the team. No municipal, census, medical or facility source is claimed.
+- Synthetic fixture and project handoff: provided by the user/team in `context/`. Generated through ChatGPT specifically for HeatReach, as confirmed by the team; preserve original values and the limited grant documented in the rights review. No municipal, census, medical or facility source is claimed.
 - [Vite getting started](https://vite.dev/guide/): checked for supported Node runtime during implementation.
 - [AWS Amplify manual deployment](https://docs.aws.amazon.com/amplify/latest/userguide/manual-deploys.html): checked for ZIP-content and static hosting instructions.
 - [AWS Amplify redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html): reference for future multi-route hosting.
@@ -37,8 +37,8 @@ No WorldPop raster or real facility/population dataset is bundled. Weather/OSM s
 
 The owner has selected MIT for original team-owned contributions, confirmed contributor approval, and authorized the collective copyright designation **HeatReach Contributors** (2026). The root `LICENSE` records that limited grant; Git commit authorship alone was not used as ownership evidence.
 
-**Publication rights still pending:** the illustrative fixture and Stitch-derived design/supplied inputs are excluded from the MIT grant until their rights holders and permitted terms are confirmed. Team supply, synthetic data, AI generation and attribution alone do not establish redistribution or relicensing permission. No permission is invented here. Third-party libraries, fonts and external provider data retain their own licenses and conditions. Do not describe the entire repository or production bundle as solely MIT-licensed.
+**Publication review completed:** the team's project-specific ChatGPT/Stitch provenance confirmation and contributor authorization resolve the earlier fixture/design questions. MIT applies only to rights the team holds and may license, including its authorized adaptations. Generated output is not necessarily copyrightable or unique; AI generation does not clear third-party rights. Dependencies, fonts and provider data retain their own terms. No specific additional unlicensed input was identified in the reviewed repository. Do not describe the complete distribution as solely MIT-licensed.
 
-See [release rights evidence](RIGHTS_REVIEW.md) for the traced source commits, supplied-input boundary and exact remaining confirmations.
+See [release rights evidence](RIGHTS_REVIEW.md) for source commits, official OpenAI/Google terms, inspection limits and the publication assessment.
 
 The original-code grant is also distributed as `public/HEATREACH_LICENSE.txt` so the static build retains the team copyright and MIT permission notice. Keep it synchronized with root `LICENSE`.

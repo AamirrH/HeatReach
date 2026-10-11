@@ -28,21 +28,23 @@ React, TypeScript, Vite, Zod, Leaflet/React Leaflet, self-hosted Fontsource font
 
 Reverified on 11 October 2026 against commit `5eb8a132ed2c7b2b7e853a119a9bfc7b00aa329a`: 67 unit/UI tests, 8 Edge production-browser tests, strict TypeScript, production build and formatting all passed. Browser workflows cover desktop/tablet/mobile widths, controls, network failures, geographic import, public-directory expiry, CSV and print. A supplemental smoke check verified radius changes, baseline metrics and all 15 production assets.
 
+Final documentation/license-only corrections were reverified at 18:41 IST: all 67 tests, strict TypeScript, production build and formatting passed. Application code and canonical values were unchanged; the earlier 8 browser tests remain applicable. The build now also ships the team MIT notice.
+
 A genuine Edge request to Open-Meteo returned HTTP 200 at 17:49 IST on 11 October; CORS, parsing, Celsius/percent units, IST timestamps, cache labeling and offline planner independence were verified. This is historical test evidence, not a current weather promise. npm audit reported zero known vulnerabilities at this check; this is not a security certification.
 
 ## Credits, AI and owner decisions
 
-OpenAI Codex assisted implementation, testing, documentation and release preparation. The team supplied the original illustrative fixture and Google Stitch visual reference. Individual authorship and contributions require team confirmation; none are invented here. Original application source/SVG artwork is documented as project work, but ownership and reuse rights must be confirmed by the owners.
+ChatGPT generated the master specification and illustrative fixture specifically for HeatReach. Google Stitch generated the UI reference, which the team adapted into the application. OpenAI Codex assisted implementation, testing, documentation and release preparation. The team confirmed publication and MIT approval for all authorized original contributions under the collective designation HeatReach Contributors. Individual member names and roles still need the captain's submission details.
 
 Preserve [full attribution](AI_AND_ATTRIBUTION.md) and the shipped [runtime notices](../public/THIRD_PARTY_NOTICES.txt): React/React DOM and Zod MIT; Leaflet BSD-2-Clause; React Leaflet and core Hippocratic-2.1; Space Grotesk/Public Sans SIL OFL 1.1. Development dependencies include MIT, MIT-0, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC and MPL-2.0 components, each retaining its own terms. Lightning CSS is a build tool and is not distributed as a tool in the website. Open-Meteo attribution and noncommercial API terms apply; optional maps retain OpenStreetMap attribution and tile-policy obligations. The Stitch reference is credited; its demo scripts and hotlinked imagery are not shipped.
 
-**Licensing:** MIT has been approved for original team-owned contributions, copyright 2026 HeatReach Contributors, with contributor approval. Third-party conditions, including Hippocratic-2.1, remain in force. **Owner action still required:** confirm the illustrative fixture and Stitch-derived design/supplied input redistribution rights and terms. Those materials are excluded from the MIT grant pending confirmation; public release is not yet cleared.
+**Licensing:** MIT is approved for rights the HeatReach Contributors hold and may license, including authorized AI-assisted contributions. The fixture/design publication review is complete based on the team's provenance confirmation and applicable provider terms; no specific material rights conflict was identified. This does not assert copyright protection for all AI output or relicense third-party material. Third-party conditions, including Hippocratic-2.1, remain in force. See [rights review](RIGHTS_REVIEW.md).
 
 ## Submission fields — complete before submitting
 
 - Project: HeatReach
 - Track: Heat and Water
-- Repository: https://github.com/AamirrH/HeatReach — anonymous access verified; fixture/design rights review still pending.
+- Repository: https://github.com/AamirrH/HeatReach — anonymous access verified; fixture/design publication review complete.
 - Actual AWS HTTPS URL: **PENDING DEPLOYMENT**
 - Successful Amplify job/branch and deployment time: **PENDING DEPLOYMENT**
 - YouTube demo, public or unlisted, under 3:00: **PENDING RECORDING AND UPLOAD**
@@ -50,7 +52,7 @@ Preserve [full attribution](AI_AND_ATTRIBUTION.md) and the shipped [runtime noti
 - Member names, registrations and individual contributions: **TEAM TO CONFIRM**
 - Student/Builder Center verification and event-window compliance: **TEAM TO CONFIRM**
 - Original team-owned contribution license: **MIT APPROVED — HeatReach Contributors, 2026**
-- Fixture/design redistribution rights and terms: **OWNER TO CONFIRM**
+- Fixture/design redistribution rights and terms: **PUBLICATION CLEARED — see RIGHTS_REVIEW.md**
 - Submission confirmation and timestamp: **PENDING SUBMISSION**
 
 ## Rules and deadline checked
