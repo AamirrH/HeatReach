@@ -19,8 +19,8 @@ The implementation retains the intended `src/engine`, `types`, `data`, `services
 | `npm install` | Installed dependencies and produced lockfile |
 | `npm test` | **67 tests passed, 10 files** |
 | `npm run typecheck` | Passed, zero TypeScript errors |
-| `npm run build` | Passed; 189 modules; static assets, fixture, catalog/data guide and runtime dependency notices |
-| `npm run test:e2e` | **7 browser tests passed**, installed Edge |
+| `npm run build` | Passed; 192 modules; static assets, fixture, catalog/data guide and runtime dependency notices |
+| `npm run test:e2e` | **8 browser tests passed**, installed Edge |
 | `npm run format:check` | Passed after formatting correction |
 | `npm audit --audit-level=high` | Zero reported vulnerabilities at verification time |
 | `npm run package` | Created and checked `release/heatreach-amplify.zip`; `index.html` at ZIP root; catalog, data guide and runtime notices included |
@@ -55,13 +55,13 @@ Browser checks exercise budget, eligibility, reset, cap, map/table consistency, 
 | Matched baseline constraints | PASS | Budget/cap/radius matrix tests |
 | Map/table/selection agree | PASS | React and browser tests |
 | Provenance and limitations visible | PASS | UI tests and screenshots |
-| Desktop and mobile UI | PASS | 1280×900 and 375×812 browser workflows |
+| Desktop and mobile UI | PASS | 1280×900, 820×1180 and 375×812 browser workflows |
 | P1 forecast with honest fallback | PASS | Unit/API contract tests, mocked browser failure and actual browser request |
 | P1 export and sensitivity | PASS | CSV escaping/provenance tests, exact recomputation and browser print/download |
 | P1 geographic input and map fallback | SOFTWARE PASS / REAL DATA REQUIRED | Schema, projection, permission, source requirements, attestation and browser tests; no real pilot supplied |
 | P2 public verified facilities | SOFTWARE PASS / INVENTORY REQUIRED | Separate catalog, expiry, permissions, search, map/cards, safety links and tests; shipped inventory empty |
 | Dossier incorporated | PASS | Reconciliation document and implemented evidence/operating metadata |
-| Required automated tests executed | PASS | 67 Vitest + 7 browser tests |
+| Required automated tests executed | PASS | 67 Vitest + 8 browser tests |
 | Production build | PASS | `npm run build` |
 | AWS Amplify HTTPS deployment | BLOCKED — HUMAN ACTION REQUIRED | Configure non-root authorized profile; run deployment steps and private-browser checks |
 | Public repository and accurate history | PARTIAL / HUMAN ACTION REQUIRED | Real milestone pushes; GitHub confirms private visibility; owner must make public and confirm event compliance |
@@ -79,3 +79,11 @@ Browser checks exercise budget, eligibility, reset, cap, map/table consistency, 
 
 Original user handoff extras (`context/HeatReach_Hackathon_Winning_Strategy_Team_Dossier.docx` and `context/README_START_HERE.md`) remain untouched locally and were not included in implementation commits. No private document was silently published.
 
+
+## Stitch design integration
+
+The supplied Stitch ZIP has been integrated into the working React application: flat ivory, terracotta and slate-blue surfaces; self-hosted Space Grotesk/Public Sans; square panel geometry; desktop navigation and mobile bottom navigation; collapsible planning controls; explicit map/table switching; and computed comparison callouts. Geographic, public-directory, weather, import and export interfaces share the design. See `DESIGN.md` for adaptations and source handling.
+
+The redesign passed all 67 unit/UI tests and 8 browser workflows, including tablet coverage and the new interactions. The existing optimizer and golden fixture were unchanged. The build includes local font assets and complete font license notices; no remote font or Tailwind CDN is required. Current overview screenshots are `screenshots/stitch-planner-desktop.png` and `screenshots/stitch-planner-mobile.png`. The earlier live-weather evidence was captured before this redesign; its readings are historical observations, not current conditions.
+
+The production build and Amplify archive were regenerated. AWS identity and verified facility data requirements remain unchanged.

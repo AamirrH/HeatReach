@@ -14,4 +14,4 @@
 - No accounts, durable scenario storage, telemetry, resident information or automatic geolocation are used. Edits/imports reset on reload. No service worker is installed. Manual weather/map loading shares request metadata and requested region/tile area with the respective providers; their terms apply.
 - Open-Meteo's free endpoint is for noncommercial use under its terms. Review the provider plan before commercial operation. OSM public tiles have usage restrictions and no guaranteed availability. Tables/cards remain usable without tiles.
 - AWS deployment and public HTTPS verification remain pending an authorized non-root account. Local functional success is not deployment success.
-- Browser QA covers installed Edge at desktop and mobile viewport sizes, keyboard navigation, print layout and network failures. It is not full cross-browser or professional accessibility certification.
+- Browser QA covers installed Edge at desktop, tablet and mobile viewport sizes, keyboard navigation, print layout and network failures. It is not full cross-browser or professional accessibility certification.

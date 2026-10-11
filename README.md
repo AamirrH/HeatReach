@@ -8,6 +8,8 @@ A working, browser-only community cooling-access planner for campus administrato
 
 ![HeatReach desktop planner](docs/screenshots/planner-1280.png)
 
+The interface follows the supplied Stitch design: warm ivory, terracotta and slate-blue surfaces, self-hosted typography, responsive navigation and a map/table switch. See [design integration](docs/DESIGN.md).
+
 ## Run locally
 
 Prerequisites: Node.js **22.12 or newer** (Node 22 LTS recommended), npm, and a modern browser. No API keys, database or backend.
