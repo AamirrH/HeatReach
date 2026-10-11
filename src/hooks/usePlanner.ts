@@ -66,7 +66,7 @@ export function usePlanner(initial: Scenario) {
       setDraft(defaults);
       setExcluded([]);
       setAnnouncement(
-        "Example reset to budget 2, radius 180 meters and all eligible candidates.",
+        `Scenario reset to budget ${initial.budgetUnits}, radius ${initial.radiusMeters} meters and initial candidate availability.`,
       );
     },
     run: () =>

@@ -6,7 +6,10 @@ export function Footer() {
         HeatReach<span>Place relief where it matters.</span>
       </strong>
       <p>{planningDisclaimer}</p>
-      <small>Illustrative district / v1.0</small>
+      <small>
+        HeatReach / planning & public information ·{" "}
+        <a href="/THIRD_PARTY_NOTICES.txt">Dependency notices</a>
+      </small>
     </footer>
   );
 }

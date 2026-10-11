@@ -18,8 +18,10 @@
     "format:check": "prettier --check src e2e *.ts *.json"
   },
   "dependencies": {
+    "leaflet": "1.9.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-leaflet": "5.0.0",
     "zod": "^4.0.0"
   },
   "devDependencies": {
@@ -27,6 +29,7 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.0.0",
+    "@types/leaflet": "1.9.22",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

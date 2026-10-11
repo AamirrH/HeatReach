@@ -10,7 +10,7 @@ export function PlannerControls({
       <div className="section-heading">
         <span className="eyebrow">01 / DEFINE</span>
         <button className="text-button" onClick={p.reset}>
-          Reset example
+          {p.scenario.mode === "illustrative" ? "Reset example" : "Reset pilot"}
         </button>
       </div>
       <h2 id="controls-title">Your planning limits</h2>
@@ -22,7 +22,12 @@ export function PlannerControls({
         }}
       >
         <label className="control-label" htmlFor="budget">
-          Planning budget <span>illustrative units</span>
+          Planning budget{" "}
+          <span>
+            {p.scenario.mode === "illustrative"
+              ? "illustrative units"
+              : "planning units"}
+          </span>
         </label>
         <input
           id="budget"

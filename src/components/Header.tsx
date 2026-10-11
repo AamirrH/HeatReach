@@ -1,4 +1,4 @@
-export function Header() {
+export function Header({ onMethod }: { onMethod: () => void }) {
   return (
     <header className="header">
       <a className="brand" href="#main" aria-label="HeatReach home">
@@ -10,7 +10,7 @@ export function Header() {
         </span>
       </a>
       <nav aria-label="Main">
-        <a href="#method">
+        <a href="#method" onClick={onMethod}>
           Method & sources <span aria-hidden="true">↗</span>
         </a>
         <span className="prototype">Planning prototype</span>

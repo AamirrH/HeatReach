@@ -58,7 +58,7 @@ test("keyboard navigation, invalid inputs and external network independence", as
   await expect(page.getByTestId("selected-sites")).toHaveText("A + C");
   await page.keyboard.press("Tab");
   await expect(
-    page.getByRole("link", { name: "Skip to planner" }),
+    page.getByRole("link", { name: "Skip to content" }),
   ).toBeFocused();
   await page.getByLabel("Planning budget", { exact: false }).fill("-1");
   await expect(page.getByRole("alert")).toBeVisible();
