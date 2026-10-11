@@ -9,7 +9,7 @@ Prerequisite: deploy and verify AWS first. Until then rehearse on localhost and 
 | 0:38–1:05 | Reset example; show budget 2, cap 2, radius 180; click Optimize Coverage | “We evaluate every feasible candidate subset, maximizing additional vulnerability-weighted access. Under these constraints the plan selects A and C.” |
 | 1:05–1:36 | Show metrics, map and comparison | “Existing modelled access is 780. A and C bring that to 2,150, against 1,750 for the alphabetic first-eligible baseline. Additional weighted points are 2,241 versus 1,385. Shared zones count once.” |
 | 1:36–2:04 | Change budget to 1 and optimize | “With one unit, C is selected and the total becomes 1,480. These numbers come from the solver, not a prewritten dashboard.” |
-| 2:04–2:16 | Uncheck Candidate C, then reset | “When a candidate becomes unavailable, the recommendation adapts to the same budget and objective.” |
+| 2:04–2:16 | Reset; change radius to 1,000 m; show no new sites; reset to 180 m | “A wider radius changes the result: existing sites already cover the model at 1,000 metres. This is straight-line reach, not a verified walking route.” |
 | 2:16–2:29 | Open sensitivity, click CSV, show weather card | “Compare radii and equal weights, export an auditable plan, and load regional weather without changing the optimization.” |
 | 2:29–2:39 | Show Public facilities empty state | “The public directory excludes proposals and expired records. No real verified inventory has been supplied, so it does not invent destinations.” |
 | 2:39–2:49 | Show actual successful Amplify job and public URL | “AWS Amplify serves this working static planner.” Say this only after actual deployment. |
