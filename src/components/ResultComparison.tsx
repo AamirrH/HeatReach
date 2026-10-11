@@ -10,14 +10,36 @@ export function ResultComparison({ result: r }: { result: PlanResult }) {
   return (
     <section className="panel comparison" aria-labelledby="comparison-title">
       <div>
-        <span className="eyebrow">THE COUNTERFACTUAL</span>
-        <h2 id="comparison-title">Make the comparison count.</h2>
+        <span className="eyebrow">04 / PLAN ANALYSIS</span>
+        <h2 id="comparison-title">Compare the outcomes.</h2>
         <p>Same radius. Same budget. Same eligible sites.</p>
         <small>
           First-eligible simple baseline (illustrative) selects in alphabetic ID
           order when cost and site limits allow. It is not a claim about
           municipal practice.
         </small>
+        <div className="comparison-delta">
+          <span>Difference from the simple baseline</span>
+          <div>
+            <strong>
+              {r.afterRawPeople >= r.baseline.afterRawPeople ? "+" : ""}
+              {n(r.afterRawPeople - r.baseline.afterRawPeople)}
+            </strong>
+            <small>modelled people within radius</small>
+          </div>
+          <div>
+            <strong>
+              {r.incrementalWeightedReach >= r.baseline.incrementalWeightedReach
+                ? "+"
+                : ""}
+              {n(
+                r.incrementalWeightedReach -
+                  r.baseline.incrementalWeightedReach,
+              )}
+            </strong>
+            <small>additional weighted points</small>
+          </div>
+        </div>
       </div>
       <div className="comparison-charts">
         {[

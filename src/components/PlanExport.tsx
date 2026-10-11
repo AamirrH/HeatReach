@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Scenario, PlanResult } from "../types/domain";
 import { downloadPlan } from "../services/exportPlan";
+import { Icon } from "./Icon";
 export function PlanExport({
   scenario,
   result,
@@ -41,10 +42,10 @@ export function PlanExport({
             }
           }}
         >
-          Download plan CSV
+          <Icon name="download" /> Download plan CSV
         </button>
         <button className="secondary-button" onClick={() => window.print()}>
-          Print summary
+          <Icon name="print" /> Print summary
         </button>
         <span role="status">{message}</span>
       </div>

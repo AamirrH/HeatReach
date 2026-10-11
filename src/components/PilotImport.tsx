@@ -14,7 +14,10 @@ export function PilotImport({
     [accepted, setAccepted] = useState(false),
     [pending, setPending] = useState<GeographicPilot | null>(null);
   return (
-    <details className="panel extension pilot-import">
+    <details
+      className="panel extension pilot-import"
+      open={imported || undefined}
+    >
       <summary>Geographic pilot · load documented local data</summary>
       <p>
         Requires sourced population and coordinates, data licenses, weighting

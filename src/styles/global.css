@@ -1,138 +1,44 @@
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-}
-button,
-input {
-  font: inherit;
-}
-button,
-a,
-input,
-summary {
-  -webkit-tap-highlight-color: transparent;
-}
-button,
-summary {
-  cursor: pointer;
-}
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
-}
-a {
-  color: var(--teal);
-  text-underline-offset: 4px;
-}
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-summary:focus-visible {
-  outline: 3px solid #b7772c;
-  outline-offset: 4px;
-}
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-}
-h1,
-h2,
-h3,
-h4 {
-  color: var(--ink);
-}
-h2 {
-  font-size: 19px;
-  letter-spacing: -0.6px;
-  line-height: 1.35;
-}
-h3 {
-  font-size: 14px;
-}
-p {
-  line-height: 1.6;
-}
-button {
-  border: 0;
-}
-input[type="checkbox"] {
-  accent-color: var(--teal);
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-small {
-  line-height: 1.5;
-}
-.muted {
-  color: var(--muted);
-  font-size: 13px;
-}
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 1.6px;
-  font-weight: 750;
-  color: var(--teal);
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-.skip-link {
-  position: absolute;
-  left: 20px;
-  top: -80px;
-  background: white;
-  padding: 15px;
-  z-index: 10;
-}
-.skip-link:focus {
-  top: 10px;
-}
 main {
   max-width: 1600px;
   margin: auto;
-  padding: 34px 36px 0;
+  padding: 36px 32px 0;
 }
 .panel {
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  min-width: 0;
+}
+.primary-button,
+.secondary-button {
+  min-height: 46px;
+  padding: 12px 16px;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 .primary-button {
-  background: var(--teal);
-  color: white;
-  border-radius: 8px;
-  min-height: 46px;
-  padding: 12px 18px;
-  font-weight: 650;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  background: var(--primary);
+  color: #fff;
 }
 .primary-button:hover {
-  background: #0a5144;
+  background: #7b341c;
 }
 .primary-button span {
   font-size: 20px;
 }
 .text-button {
   background: transparent;
-  padding: 8px 0;
-  color: var(--muted);
+  padding: 10px 0;
+  color: var(--secondary);
   text-decoration: underline;
-  text-underline-offset: 3px;
-  font-size: 11px;
+  text-underline-offset: 4px;
+  font-size: 12px;
 }
 .centered {
   text-align: center;
@@ -141,22 +47,23 @@ main {
   display: none;
 }
 summary {
-  font-weight: 650;
-  font-size: 13px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
   line-height: 1.5;
 }
 details p {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 12px;
 }
 .warning,
 .input-error {
-  background: #fff2dc;
-  color: #784709;
-  font-size: 12px;
-  border-radius: 6px;
-  padding: 10px;
+  background: var(--primary-soft);
+  color: #823c26;
+  border-left: 3px solid var(--primary);
+  font-size: 13px;
+  padding: 12px;
   margin: 12px 0;
 }
 .loading,
@@ -170,33 +77,35 @@ details p {
 }
 footer {
   max-width: 1600px;
-  margin: 30px auto 0;
-  padding: 25px 36px 35px;
+  margin: 32px auto 0;
+  padding: 24px 32px 32px;
   border-top: 1px solid var(--line);
   display: flex;
-  gap: 25px;
+  gap: 24px;
   align-items: center;
   color: var(--muted);
 }
 footer strong {
-  font-size: 16px;
+  font-family: var(--display);
+  font-size: 18px;
   color: var(--ink);
   white-space: nowrap;
 }
 footer strong span {
   display: block;
-  font-size: 10px;
+  font-family: "Public Sans Variable", sans-serif;
+  font-size: 11px;
   font-weight: 400;
   margin-top: 5px;
 }
 footer p {
-  font-size: 11px;
-  max-width: 660px;
+  font-size: 12px;
+  max-width: 650px;
 }
 footer small {
   margin-left: auto;
-  font-size: 10px;
-  white-space: nowrap;
+  font-size: 11px;
+  max-width: 230px;
 }
 @media (max-width: 700px) {
   main {
@@ -204,7 +113,7 @@ footer small {
   }
   footer {
     margin: 24px 16px 0;
-    padding: 20px 0;
+    padding: 20px 0 calc(100px + env(safe-area-inset-bottom));
     display: block;
   }
   footer p {
@@ -212,5 +121,11 @@ footer small {
   }
   .mobile-break {
     display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
   }
 }

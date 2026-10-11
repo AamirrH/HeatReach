@@ -78,8 +78,8 @@ export default function GeographicMap({
                 radius={9}
                 pathOptions={{
                   color: result?.afterCoveredZoneIds.includes(z.id)
-                    ? "#136958"
-                    : "#966020",
+                    ? "#994426"
+                    : "#3a637b",
                 }}
               >
                 <Popup>
@@ -117,10 +117,10 @@ export default function GeographicMap({
                   radius={selected ? 12 : 7}
                   pathOptions={{
                     color: selected
-                      ? "#136958"
+                      ? "#994426"
                       : activeExisting
-                        ? "#173b37"
-                        : "#7a7464",
+                        ? "#40664c"
+                        : "#586570",
                     dashArray: s.kind === "candidate" ? "3 3" : undefined,
                   }}
                 >
@@ -148,7 +148,7 @@ export default function GeographicMap({
                       center={[s.latitude, s.longitude]}
                       radius={scenario.radiusMeters}
                       pathOptions={{
-                        color: "#136958",
+                        color: "#994426",
                         fillOpacity: 0.06,
                         weight: 1,
                       }}

@@ -1,15 +1,129 @@
 :root {
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  color: #203532;
-  background: #f3f5f0;
+  font-family: "Public Sans Variable", "Segoe UI", sans-serif;
+  color: #202b33;
+  background: #f6f4ef;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --ink: #173b37;
-  --muted: #60716c;
-  --teal: #136958;
-  --line: #dce3da;
-  --amber: #966020;
+  font-variant-numeric: tabular-nums;
+  --display: "Space Grotesk Variable", "Segoe UI", sans-serif;
+  --ink: #202b33;
+  --muted: #586570;
+  --primary: #994426;
+  --primary-soft: #fbefe9;
+  --secondary: #3a637b;
+  --secondary-soft: #edf3f7;
+  --sage: #40664c;
+  --line: #dcd6ca;
+  --amber: #865129;
   --white: #fff;
-  --radius: 14px;
+  --canvas: #f6f4ef;
+  --radius: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+summary {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+a {
+  color: var(--secondary);
+  text-underline-offset: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 4px;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  font-family: var(--display);
+}
+h2 {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 15px;
+}
+p {
+  line-height: 1.65;
+}
+button {
+  border: 0;
+}
+input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+small {
+  line-height: 1.5;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+.eyebrow {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.skip-link {
+  position: absolute;
+  left: 20px;
+  top: -80px;
+  background: white;
+  padding: 15px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 10px;
 }

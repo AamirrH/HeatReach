@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 for (const viewport of [
   { width: 1280, height: 900 },
+  { width: 820, height: 1180 },
   { width: 375, height: 812 },
 ]) {
   test(`complete planning workflow at ${viewport.width}px`, async ({
@@ -42,6 +43,29 @@ for (const viewport of [
     );
     await expect(
       page.getByText("ILLUSTRATIVE SCENARIO", { exact: true }),
+    ).toBeVisible();
+    await page
+      .getByRole("button", { name: "Schematic map", exact: true })
+      .click();
+    await expect(
+      page.getByRole("img", { name: "Illustrative district coverage map" }),
+    ).toBeVisible();
+    await page
+      .getByRole("button", { name: "Accessible table", exact: true })
+      .click();
+    await expect(page.locator('[data-zone-id="Z3"]')).toContainText(
+      "New access",
+    );
+    await expect(
+      page.getByRole("img", { name: "Illustrative district coverage map" }),
+    ).toBeHidden();
+    await page.getByText("01 / PLANNING PARAMETERS", { exact: true }).click();
+    await expect(
+      page.getByLabel("Planning budget", { exact: false }),
+    ).toBeHidden();
+    await page.getByText("01 / PLANNING PARAMETERS", { exact: true }).click();
+    await expect(
+      page.getByLabel("Planning budget", { exact: false }),
     ).toBeVisible();
     expect(errors).toEqual([]);
   });

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import type { Scenario } from "./types/domain";
 import { loadScenario } from "./data/scenarios";
 import { errorMessage } from "./engine/validation";
@@ -23,16 +24,20 @@ const GeographicMap = lazy(() => import("./components/GeographicMap"));
 function Planner({
   initial,
   pilot,
+  importControls,
 }: {
   initial: Scenario;
   pilot: GeographicPilot | null;
+  importControls: ReactNode;
 }) {
   const p = usePlanner(initial);
   return (
     <>
       <div className="intro">
         <div>
-          <span className="eyebrow">A LITTLE RELIEF. A BETTER REACH.</span>
+          <span className="eyebrow intro-label">
+            COMMUNITY RESILIENCE / PLANNING WORKSPACE
+          </span>
           <h1>
             Find the gaps.
             <br className="mobile-break" /> Place the relief.
@@ -50,7 +55,6 @@ function Planner({
         </div>
       </div>
       <SourceBanner scenario={p.scenario} />
-      {p.result && <MetricsStrip result={p.result} scenario={p.scenario} />}
       <div className="workspace">
         <PlannerControls planner={p} />
         {p.result ? (
@@ -66,6 +70,7 @@ function Planner({
             ) : (
               <ScenarioMap scenario={p.scenario} result={p.result} />
             )}
+            <MetricsStrip result={p.result} scenario={p.scenario} />
             <RecommendationList scenario={p.scenario} result={p.result} />
           </>
         ) : (
@@ -85,9 +90,10 @@ function Planner({
       {p.result && (
         <>
           <SensitivityPanel scenario={p.scenario} result={p.result} />
-          <PlanExport scenario={p.scenario} result={p.result} />
         </>
       )}
+      {importControls}
+      {p.result && <PlanExport scenario={p.scenario} result={p.result} />}
       {p.scenario.weatherLocation && (
         <WeatherContext
           key={p.scenario.id}
@@ -124,6 +130,11 @@ export default function App() {
         Skip to content
       </a>
       <Header
+        view={view}
+        onView={(next) => {
+          setView(next);
+          window.scrollTo({ top: 0 });
+        }}
         onMethod={() => {
           setView("planner");
           requestAnimationFrame(() =>
@@ -131,34 +142,9 @@ export default function App() {
           );
         }}
       />
-      <nav className="mode-switch" aria-label="Choose audience">
-        <button
-          aria-pressed={view === "planner"}
-          onClick={() => setView("planner")}
-        >
-          Community planner
-        </button>
-        <button
-          aria-pressed={view === "public"}
-          onClick={() => setView("public")}
-        >
-          Public facilities
-        </button>
-      </nav>
       <main id="main">
         {view === "public" && <PublicFacilities />}
         <div hidden={view !== "planner"}>
-          <PilotImport
-            imported={!!pilot}
-            onImport={(p) => {
-              setPilot(p);
-              setRevision((r) => r + 1);
-            }}
-            onReset={() => {
-              setPilot(null);
-              setRevision((r) => r + 1);
-            }}
-          />
           {error ? (
             <section className="panel load-error" role="alert">
               <h1>Scenario could not be loaded</h1>
@@ -175,6 +161,21 @@ export default function App() {
               key={`${activeScenario.id}-${revision}`}
               initial={activeScenario}
               pilot={pilot}
+              importControls={
+                <PilotImport
+                  imported={!!pilot}
+                  onImport={(p) => {
+                    setPilot(p);
+                    setRevision((r) => r + 1);
+                    window.scrollTo({ top: 0 });
+                  }}
+                  onReset={() => {
+                    setPilot(null);
+                    setRevision((r) => r + 1);
+                    window.scrollTo({ top: 0 });
+                  }}
+                />
+              }
             />
           ) : (
             <section className="panel loading" role="status">
