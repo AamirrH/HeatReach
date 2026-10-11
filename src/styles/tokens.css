@@ -1,1 +1,15 @@
-:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#203532;background:#f3f5f0;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;--ink:#173b37;--muted:#60716c;--teal:#136958;--line:#dce3da;--amber:#966020;--white:#fff;--radius:14px}
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #203532;
+  background: #f3f5f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #173b37;
+  --muted: #60716c;
+  --teal: #136958;
+  --line: #dce3da;
+  --amber: #966020;
+  --white: #fff;
+  --radius: 14px;
+}

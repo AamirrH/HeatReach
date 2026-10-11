@@ -1,0 +1,11 @@
+LICENSING_PENDING_TEAM_CHOICE
+
+The team has not yet selected a license for HeatReach's original application code,
+documentation, original artwork or user-provided fixture. No open-source grant is
+asserted by this file. The team must confirm authorship and fixture redistribution
+rights and replace this notice with its approved license before presenting the
+project as licensed open source.
+
+Third-party dependencies retain their own licenses and notices. See
+docs/AI_AND_ATTRIBUTION.md and package-lock.json. This notice does not alter those
+licenses or claim ownership of third-party code.
