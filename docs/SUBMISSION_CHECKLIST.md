@@ -9,7 +9,7 @@ This checklist separates implemented software from account-dependent event actio
 - [x] Local tests, strict TypeScript and production build executed successfully.
 - [x] Public-ready code, methodology, provenance, limitations and AI disclosure prepared.
 - [x] Repository initialized and implementation milestones pushed to `AamirrH/HeatReach`.
-- [ ] **BLOCKED — HUMAN ACTION REQUIRED:** make the currently private repository public and confirm source/data licensing choice. Repository URL: https://github.com/AamirrH/HeatReach
+- [x] Repository anonymously accessible; authorized team rights licensed under MIT; AI-generated fixture/design publication review complete. See `RIGHTS_REVIEW.md`. Repository URL: https://github.com/AamirrH/HeatReach
 - [ ] **BLOCKED — HUMAN ACTION REQUIRED:** sign in using authorized non-root AWS identity; deploy and verify real public HTTPS URL using `DEPLOY_AWS.md`.
 - [ ] **REAL PILOT / PUBLIC DATA REQUIRED:** follow `public/data/README.md` to supply licensed, sourced geographic inputs and operator-verified facilities. Keep the directory empty until evidence, permission, hours and expiry are reviewed. This is separate from demonstrating the synthetic planner.
 - [ ] **BLOCKED — HUMAN ACTION REQUIRED:** captain confirms exact deadline hour/timezone in the current portal/messages. Never infer midnight.
@@ -34,5 +34,5 @@ Built with React, TypeScript, Vite, Zod, Vitest, Testing Library and Playwright,
 - YouTube URL and measured duration: PENDING
 - Student/team verification: PENDING
 - Submission receipt and timestamp: PENDING
-- Team-approved project license and fixture permissions: PENDING
+- Team-approved project license and fixture publication: CONFIRMED within the scope documented in `RIGHTS_REVIEW.md`
 

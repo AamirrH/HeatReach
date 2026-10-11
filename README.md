@@ -81,15 +81,15 @@ No accounts, sensors, automatic emergency dispatch, resident tracking, routing e
 
 ## Hosting and release status
 
-Repository: <https://github.com/AamirrH/HeatReach>. Milestones are committed and pushed with actual timestamps. GitHub currently reports private visibility; the owner must make it public for submission.
+Repository: <https://github.com/AamirrH/HeatReach>. Milestones are committed and pushed with actual timestamps. Anonymous GitHub API access returned HTTP 200 during the final release review. Visibility was not changed by that review; fixture/design publication review is complete; see [rights evidence](docs/RIGHTS_REVIEW.md).
 
 **AWS: PENDING AUTHORIZED NON-ROOT AWS ACCOUNT.** The existing local AWS session identifies as root, which the supplied specification prohibits using for deployment. No Amplify resources were created; no deployment URL is claimed. AWS's planned role is static Amplify Hosting only. Production output and a verified upload ZIP are available locally after packaging.
 
-Windows packaging: `npm run package`. See [AWS deployment](docs/DEPLOY_AWS.md) for Console, Git and guarded CLI workflows. Human actions still include approving the project license, confirming the event cutoff and eligibility, recording/uploading the video, and submitting the actual form. See [acceptance report](docs/EXECUTION_REPORT.md) and [submission checklist](docs/SUBMISSION_CHECKLIST.md).
+Windows packaging: `npm run package`. See [AWS deployment](docs/DEPLOY_AWS.md) for Console, Git and guarded CLI workflows. Human actions still include confirming the event cutoff and eligibility, recording/uploading the video, and submitting the actual form. See [acceptance report](docs/EXECUTION_REPORT.md) and [submission checklist](docs/SUBMISSION_CHECKLIST.md).
 
 ## Method and integrity
 
 [Methodology](docs/METHODOLOGY.md) · [Data provenance](docs/DATA_PROVENANCE.md) · [Limitations](docs/LIMITATIONS.md) · [Demo script](docs/DEMO_SCRIPT.md) · [AI and dependency credits](docs/AI_AND_ATTRIBUTION.md)
 
-The supplied specification is preserved as handoff context, not evidence that its external event or deployment claims are verified. Source creation began during this build session; no history was backdated. Original application licensing is **pending team choice**; see `LICENSE`. Dependencies retain their own licenses.
+The supplied specification is preserved as handoff context, not evidence that its external event or deployment claims are verified. Source creation began during this build session; no history was backdated. Original team-owned contributions are licensed under **MIT**, copyright 2026 HeatReach Contributors; see `LICENSE`. Third-party materials retain their separate terms. The team confirmed the specification/fixture and Stitch design were generated specifically for HeatReach. Publication is cleared under the reviewed provider terms; MIT grants only rights the team holds and may license, without claiming copyright in every generated element. See [attribution and rights status](docs/AI_AND_ATTRIBUTION.md).
 

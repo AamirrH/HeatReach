@@ -6,7 +6,7 @@ OpenAI Codex assisted with reading the user-provided handoff, implementing the e
 
 The user-provided Word strategy dossier was read in full, including tables, using document extraction; its guidance and differences from the newer master specification are recorded in `DOSSIER_RECONCILIATION.md`. The original private handoff was not automatically published.
 
-The user supplied a Google Stitch UI export, used as the visual reference for the redesign documented in `DESIGN.md`. Its demonstration scripts, fabricated content and hotlinked imagery were not shipped. No AI-generated raster imagery, stock images, externally hosted fonts or fake cloud screenshots are used. The logo and icons are native SVG/HTML. The default map is fixture-generated SVG; optional geographic maps use attributed OSM tiles. Screenshots were captured from the actual running local application with Playwright. Automated geographic tests use invented records with tile requests blocked; these are not field evidence.
+The team confirmed that ChatGPT generated the master specification and its illustrative fixture specifically for HeatReach. Google Stitch generated the project UI, and the user supplied its export, used as the visual reference for the redesign documented in `DESIGN.md`. Its demonstration scripts, fabricated content and hotlinked imagery were not shipped. No AI-generated raster imagery, stock images, externally hosted fonts or fake cloud screenshots are used. The logo and icons are native SVG/HTML. The default map is fixture-generated SVG; optional geographic maps use attributed OSM tiles. Screenshots were captured from the actual running local application with Playwright. Automated geographic tests use invented records with tile requests blocked; these are not field evidence.
 
 ## Dependencies
 
@@ -14,9 +14,13 @@ Direct dependency versions and transitive integrity hashes are fixed in `package
 
 Leaflet 1.9.4 uses BSD-2-Clause; Leaflet type definitions use MIT. React Leaflet 5.0.0 and its core package use **Hippocratic-2.1**, with additional MIT notices for older portions. These are the installed package licenses, not an assumption that every React library is MIT. Full runtime dependency notices are distributed in `public/THIRD_PARTY_NOTICES.txt` and linked in the application footer. Preserve them in deployment and when updating dependencies. The application uses self-hosted Space Grotesk and Public Sans through pinned Fontsource variable packages, both SIL Open Font License 1.1, with system fallbacks. Full font licenses ship in the runtime notices. AWS CLI is a local operator tool, not shipped in the frontend. Edge is used for automated browser QA, not redistributed.
 
+The lockfile also includes MIT-0, ISC, BSD-2-Clause, BSD-3-Clause and MPL-2.0 development/build dependencies. Lightning CSS and its platform packages use MPL-2.0; they are build tools, not distributed tool binaries in the website. Using them to transform CSS does not by itself relicense generated application CSS. Redistributing those tools requires their applicable notices and source-availability obligations. Preserve any applicable Apache NOTICE files if distributing Apache-licensed tools.
+
+React Leaflet/core retain Hippocratic-2.1 use conditions, including human-rights compliance, arbitration and specified indemnity provisions. The project MIT grant does not override those conditions. Complete installed runtime license texts, including older MIT portions and font copyright notices, are preserved in `public/THIRD_PARTY_NOTICES.txt`.
+
 ## Input credit and external references
 
-- Synthetic fixture and project handoff: provided by the user/team in `context/`. Preserve original values and confirm redistribution rights with the team. No municipal, census, medical or facility source is claimed.
+- Synthetic fixture and project handoff: provided by the user/team in `context/`. Generated through ChatGPT specifically for HeatReach, as confirmed by the team; preserve original values and the limited grant documented in the rights review. No municipal, census, medical or facility source is claimed.
 - [Vite getting started](https://vite.dev/guide/): checked for supported Node runtime during implementation.
 - [AWS Amplify manual deployment](https://docs.aws.amazon.com/amplify/latest/userguide/manual-deploys.html): checked for ZIP-content and static hosting instructions.
 - [AWS Amplify redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html): reference for future multi-route hosting.
@@ -31,4 +35,10 @@ No WorldPop raster or real facility/population dataset is bundled. Weather/OSM s
 
 ## Licensing action
 
-`LICENSE` records **LICENSING_PENDING_TEAM_CHOICE**. The team must choose a license for original code and confirm fixture redistribution before claiming an open-source grant. Third-party licenses remain applicable regardless of that choice.
+The owner has selected MIT for original team-owned contributions, confirmed contributor approval, and authorized the collective copyright designation **HeatReach Contributors** (2026). The root `LICENSE` records that limited grant; Git commit authorship alone was not used as ownership evidence.
+
+**Publication review completed:** the team's project-specific ChatGPT/Stitch provenance confirmation and contributor authorization resolve the earlier fixture/design questions. MIT applies only to rights the team holds and may license, including its authorized adaptations. Generated output is not necessarily copyrightable or unique; AI generation does not clear third-party rights. Dependencies, fonts and provider data retain their own terms. No specific additional unlicensed input was identified in the reviewed repository. Do not describe the complete distribution as solely MIT-licensed.
+
+See [release rights evidence](RIGHTS_REVIEW.md) for source commits, official OpenAI/Google terms, inspection limits and the publication assessment.
+
+The original-code grant is also distributed as `public/HEATREACH_LICENSE.txt` so the static build retains the team copyright and MIT permission notice. Keep it synchronized with root `LICENSE`.

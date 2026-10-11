@@ -2,7 +2,7 @@
 
 | Input or output | Source | Status and interpretation |
 |---|---|---|
-| Eight zones, population, weights, X1/X2, A–E and costs | User-provided `context/fixtures/illustrative_district.json` | Wholly synthetic, including fictional existing facilities; not census or municipal data |
+| Eight zones, population, weights, X1/X2, A–E and costs | ChatGPT-generated HeatReach master specification, copied into `context/fixtures/illustrative_district.json` | Wholly synthetic, including fictional existing facilities; not census or municipal data |
 | Radius 180, budget 2, site cap 2 | Same fixture defaults | Editable planning assumptions; costs are arbitrary budget units, not rupees |
 | Coverage and weighted access | Pure local engine | Modelled results; points are not people or measured health outcomes |
 | Default geometry | Fixture x/y meters | Fictional schematic, never rendered on real tiles |
@@ -19,4 +19,6 @@ The canonical fixture is preserved byte-for-byte. All its weights lie in 1–2 a
 
 Open-Meteo data attribution uses CC BY 4.0; its free API's noncommercial terms also apply. Weather/map requests are optional. Their providers receive normal browser request information, including the requested geographic area. No secret key is used. See [attribution](AI_AND_ATTRIBUTION.md) and [limitations](LIMITATIONS.md).
 
-Before presenting a real pilot or publishing public facilities, follow the [data contract](../public/data/README.md), verify facts and redistribution rights, and review source dates, permissions, hours, capacity uncertainty and accessibility. Existing public verification must expire within 30 days; automatic expiry is not a substitute for timely operator updates. Fixture redistribution and original-code licensing remain the team's decision.
+Before presenting a real pilot or publishing public facilities, follow the [data contract](../public/data/README.md), verify facts and redistribution rights, and review source dates, permissions, hours, capacity uncertainty and accessibility. Existing public verification must expire within 30 days; automatic expiry is not a substitute for timely operator updates. Original team-owned contributions are licensed under MIT, copyright 2026 HeatReach Contributors. The team confirmed on 11 October 2026 that ChatGPT generated the master specification specifically for HeatReach and that the fixture originated from it. Publication is cleared on that declaration and the reviewed output terms; MIT applies only to rights the team holds and may license, without asserting copyright protection for every generated element.
+
+See [release rights evidence](RIGHTS_REVIEW.md) for the traced source commits, provider terms, publication assessment and limited MIT scope.
