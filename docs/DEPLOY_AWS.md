@@ -22,7 +22,7 @@ On Windows PowerShell:
 npm run package
 ```
 
-This creates `release/heatreach-amplify.zip` and verifies `index.html` is at ZIP root. The archive contains only production assets and the fixture, not project sources, credentials or `node_modules`. Build before every package operation. On macOS/Linux: `cd dist` and `zip -r ../heatreach-amplify.zip .`.
+This creates `release/heatreach-amplify.zip` and verifies `index.html` is at ZIP root. The archive contains production assets, the fixture and public data contract/catalog, not project sources, credentials or `node_modules`. Build before every package operation. On macOS/Linux: `cd dist` and `zip -r ../heatreach-amplify.zip .`.
 
 ## Console deployment
 
@@ -31,7 +31,7 @@ This creates `release/heatreach-amplify.zip` and verifies `index.html` is at ZIP
 3. Name the app `HeatReach`, branch `production`, and choose **Drag and drop**.
 4. Upload the ZIP from above. Choose **Save and deploy**.
 5. Wait for success. Record the app ID, region, job ID, HTTPS URL and actual timestamp here.
-6. Open the URL in a private browser. Verify fixture fetch, A+C and 2,150; budget 1 gives C and 1,480; uncheck C; reset; inspect mobile layout and sources. Refresh the page and download the scenario.
+6. Open the URL in a private browser. Verify fixture fetch, A+C and 2,150; budget 1 gives C and 1,480; uncheck C; reset; inspect mobile layout and sources. Check sensitivity, download CSV, preview printing and explicitly load regional weather. Weather failure must leave the plan usable. Open Public facilities and confirm the empty state until a reviewed inventory is published. Check `/data/verified-facilities.json` and the source guide, then refresh the page.
 7. Capture the real Amplify console and live URL for the video. Only after this verification change deployment status to complete.
 
 AWS's [manual deployment instructions](https://docs.aws.amazon.com/amplify/latest/userguide/manual-deploys.html), checked during implementation, specify uploading the **contents** of the build output. A parent `dist` directory in the ZIP causes an invalid root. This application is static, so manual hosting is suitable; it needs no server runtime or database.
@@ -71,4 +71,6 @@ Only a single page and in-page anchors exist, so no history-route rewrite is nee
 - Build fails: use Node 22.12+ and `npm ci`; do not remove the lockfile.
 - Access denied: check role authorization, session expiry and intended AWS region. Do not fall back to root.
 - Old content: compare build/job IDs and perform a fresh private-browser reload.
-- Missing live API: expected; the P0 planner uses only the local fixture.
+- Weather failure: check the optional Open-Meteo request and provider terms; cached/unavailable context must not affect planning. No API key is required for the noncommercial endpoint.
+- Map tiles unavailable: check network/provider policy; use the accessible geographic table or public cards. Maps are opt-in and only available for geographic inputs/current facilities.
+- Empty public directory: expected with the shipped empty catalog. Follow `public/data/README.md` for reviewed records; never populate it from fictional tests or planning candidates.

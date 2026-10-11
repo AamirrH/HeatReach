@@ -4,13 +4,15 @@
 
 OpenAI Codex assisted with reading the user-provided handoff, implementing the engine and UI, writing tests/documentation, executing builds and browser tests, and committing/pushing milestone changes. A human team should review the result. No claim is made of unassisted authorship or independent field research. The Sites skill's local development/preview guidance was consulted; the user-required Vite/AWS architecture takes precedence and no Sites hosting was created.
 
-No AI-generated imagery, stock images, copied third-party artwork, externally hosted fonts, maps, or fake cloud screenshots are used. The logo is a simple original HTML/CSS treatment, and the map is generated from fixture data by SVG. Screenshots were captured from the actual running local application with Playwright.
+The user-provided Word strategy dossier was read in full, including tables, using document extraction; its guidance and differences from the newer master specification are recorded in `DOSSIER_RECONCILIATION.md`. The original private handoff was not automatically published.
+
+No AI-generated imagery, stock images, copied third-party artwork, externally hosted fonts or fake cloud screenshots are used. The logo is original HTML/CSS. The default map is fixture-generated SVG; optional geographic maps use attributed OSM tiles. Screenshots were captured from the actual running local application with Playwright. Automated geographic tests use invented records with tile requests blocked; these are not field evidence.
 
 ## Dependencies
 
 Direct dependency versions and transitive integrity hashes are fixed in `package-lock.json`. React/React DOM, Vite and its React plugin, Zod, Vitest, Testing Library packages, jsdom and the TypeScript type packages use MIT licenses. TypeScript and Playwright use Apache-2.0. Prettier uses MIT. Installed dependency license metadata and notices remain in each dependency package; generated build output retains relevant bundler notices. These licenses do not automatically assign a license to this project's original source or the supplied fixture.
 
-The application uses system fonts and browser primitives. AWS CLI is a local operator tool, not shipped in the frontend. Edge is used for automated browser QA, not redistributed.
+Leaflet 1.9.4 uses BSD-2-Clause; Leaflet type definitions use MIT. React Leaflet 5.0.0 and its core package use **Hippocratic-2.1**, with additional MIT notices for older portions. These are the installed package licenses, not an assumption that every React library is MIT. Full runtime dependency notices are distributed in `public/THIRD_PARTY_NOTICES.txt` and linked in the application footer. Preserve them in deployment and when updating dependencies. The application uses system fonts and browser primitives. AWS CLI is a local operator tool, not shipped in the frontend. Edge is used for automated browser QA, not redistributed.
 
 ## Input credit and external references
 
@@ -18,10 +20,14 @@ The application uses system fonts and browser primitives. AWS CLI is a local ope
 - [Vite getting started](https://vite.dev/guide/): checked for supported Node runtime during implementation.
 - [AWS Amplify manual deployment](https://docs.aws.amazon.com/amplify/latest/userguide/manual-deploys.html): checked for ZIP-content and static hosting instructions.
 - [AWS Amplify redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html): reference for future multi-route hosting.
-- [Open-Meteo](https://open-meteo.com/en/docs): retained in original fixture metadata only; no weather API integration or data redistribution in this release.
+- [Open-Meteo](https://open-meteo.com/en/docs): regional forecast API, fetched only on request. Data attribution: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [API terms](https://open-meteo.com/en/terms) restrict the free service to noncommercial use; review an appropriate plan before commercial operation. Forecast source/fetch times, cached state and attribution are shown in the card. Browser requests share request metadata and the requested region with the provider.
+- [OpenStreetMap contributors](https://www.openstreetmap.org/copyright): geographic base tiles and data attribution, with ODbL data terms. [Tile usage policy](https://operations.osmfoundation.org/policies/tiles/) applies to the standard public tile service. Maps are opt-in, retain attribution and browser caching/referrer behavior, and do not prefetch, bulk-download or implement offline tile storage. OSM is not the source of fixture population, weights or site verification.
+- [Leaflet reference](https://leafletjs.com/reference.html): map integration documentation.
+- [WHO heat and health](https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health): source for paraphrased general heat-safety information; no copied clinical protocol or diagnostic claim.
+- [India Emergency Response Support System](https://112.gov.in/): source for the optional manual 112 contact link; no automated dispatch integration.
 - Event sources supplied in the handoff: [overview](https://www.wemakedevs.org/aws/env), [rules](https://www.wemakedevs.org/aws/env/rules), [schedule](https://www.wemakedevs.org/aws/env/schedule). This build does not assert verified eligibility, deadline hour or submission acceptance.
 
-No WorldPop raster, OpenStreetMap tiles or external geospatial dataset is used. Do not credit those providers as contributors to modelled fixture results.
+No WorldPop raster or real facility/population dataset is bundled. Weather/OSM service availability does not verify pilot inputs or cooling-center operations. Their licenses do not confer rights to operator-supplied data.
 
 ## Licensing action
 

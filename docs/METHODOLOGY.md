@@ -4,7 +4,7 @@
 
 The fixture uses a fictional local plane in meters. Distance is `Math.hypot(zone.x - site.x, zone.y - site.y)`. A zone is reached when distance is at most `radius + 1e-9`. Each demand zone is an aggregate point, so its entire estimated population enters or leaves the proxy together. No street network or travel time is inferred.
 
-Existing coverage is the union of active existing-site coverage sets. In illustrative mode only `illustrative_existing` sites qualify; in verified-pilot mode only `verified_open` sites qualify. Unavailable facilities are excluded. The shipped application enables only the illustrative fixture; parsing support is not a verified-pilot launch.
+Existing coverage is the union of active existing-site coverage sets. In illustrative mode only `illustrative_existing` sites qualify; in geographic pilot mode only `verified_open` sites qualify. Unavailable facilities are excluded. Imported existing facilities additionally require current verification, public access and permission. The default dataset remains illustrative; no real pilot inventory is shipped.
 
 For selected candidates S, after-coverage = existing union coverage(S). Newly covered = after minus existing. Raw reach sums estimated population once per covered zone. Weighted reach sums population × documented vulnerability weight once per covered zone. Weighted points are not people.
 
@@ -35,3 +35,13 @@ The A+B baseline adds Z2, Z5 and Z6, counting shared Z6 once: raw total 1,750; w
 ## Correction to the requested monotonicity test
 
 Increasing budget cannot reduce optimal additional weighted reach because the feasible set only grows. Increasing radius cannot reduce optimal **total** weighted coverage. However, additional gain is measured relative to existing facilities whose own coverage also grows. Consequently, additional gain can decrease as radius increases: this fixture has gain 2,241 at 180 m but 0 at 1,000 m, where existing facilities already cover all zones. Tests assert the mathematically correct properties and this counterexample. Raw population also need not dominate the baseline when the objective is weighted reach.
+
+## P1 comparisons and export
+
+The sensitivity panel solves the same scenario at the current radius and at ±60 m (bounded to 50–1,000 m), retaining budget, cap and exclusions. An equal-weight comparison sets each weight to 1 and reruns exact optimization. It exposes the effect of the weighting assumption; it is not a fairness certification. CSV export includes constraints, selected IDs, marginal contributions, excluded candidates, zone weights, source evidence and limitations. Formula-like text fields are neutralized for spreadsheet use. Printing includes a constraints summary and provenance.
+
+## Geographic pilot and public directory
+
+Geographic imports require source URL, license, date, resolution, weighting basis and site operating details. A review/attestation step precedes activation. Latitude/longitude are projected onto a local meter plane using an equirectangular approximation: x = R × longitude difference × cos(origin latitude), y = R × latitude difference, with angles in radians and R = 6,371,008.8 m. All points must lie within 5 km of the origin and latitude must be within ±85°. This remains approximate straight-line coverage, including at high latitudes and threshold boundaries; it is not walking distance. The original exact solver and objective are reused.
+
+Existing facilities and public records require documented checks that expire within 30 days. Public display also requires existing/verified provenance, operational status, public access, permission and nonfuture evidence dates. Expiry is checked every 30 seconds and on focus; the public catalog is refreshed every minute and on focus, with failure clearing displayed records. These are input and freshness safeguards, not independent field verification or an assertion that a facility is open at this instant. Opening hours are displayed as supplied; users are told to confirm before travel. Planner imports never change the published public catalog.

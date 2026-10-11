@@ -4,7 +4,7 @@
 
 A working, browser-only community cooling-access planner for campus administrators, NGOs and ward planners. Adjust a budget, site cap, radius and candidate availability. An exact optimizer recommends the feasible subset with the greatest additional vulnerability-weighted access and compares it with an explicitly defined simple baseline.
 
-**This demonstration is entirely illustrative.** Locations, populations, weights, facilities and costs are synthetic. Proposed sites are not operational cooling centers. Straight-line coverage is not verified walking access or a health outcome.
+**The default demonstration is entirely illustrative.** Locations, populations, weights, facilities and costs are synthetic. Proposed sites are not operational cooling centers. P1 supports importing documented geographic inputs; P2 provides a separate public directory, currently empty because no verified inventory was supplied. Straight-line coverage is not verified walking access or a health outcome.
 
 ![HeatReach desktop planner](docs/screenshots/planner-1280.png)
 
@@ -17,7 +17,7 @@ npm ci
 npm run dev
 ```
 
-Open the printed local URL, normally `http://127.0.0.1:5173`. The scenario JSON is served locally; the application makes no third-party requests. It works without external APIs after the local server starts. It is not a service-worker offline installation.
+Open the printed local URL, normally `http://127.0.0.1:5173`. The default planner works without external APIs after the local server starts. Weather and geographic map tiles make third-party requests only when explicitly loaded. It is not a service-worker offline installation.
 
 ```sh
 npm test                 # Vitest domain + React tests
@@ -53,22 +53,29 @@ All figures are calculated by the engine, never hard-coded into result component
 
 ```text
 src/engine/       validation, Euclidean geometry, union coverage,
-                  exact subset optimization, baseline, marginal explanations
+                  exact optimization, baseline, explanations, sensitivity,
+                  geographic projection and facility verification rules
 src/types/        strict domain contracts
 src/data/         validated fixture loading and source terminology
 src/hooks/        planner controls, eligibility and synchronized results
+src/services/     cached regional weather and provenance-rich CSV export
 src/components/   controls, schematic SVG, accessible tables, recommendations,
-                  metrics, baseline comparison, provenance and limitations
+                  metrics, comparisons, weather, import and public directory
 src/styles/       responsive plain CSS, keyboard focus and visual tokens
 src/tests/        domain + React integration tests
 e2e/             desktop/mobile browser workflows
 public/fixtures/  unchanged canonical synthetic fixture
+public/data/      empty verified-facility catalog and geographic input contract
 scripts/         validated deployment packaging and non-root AWS deployment
 docs/            methodology, provenance, limits, demo and release evidence
 amplify.yml      Git-connected static Amplify build configuration
 ```
 
-Enumeration supports at most 12 candidates and 20 demand zones. No ML, accounts, sensors, emergency dispatch, map tiles, resident tracking or unnecessary services. Optional live weather, geographic pilots, exports and public facility navigation are deliberately outside this P0 release. Raw-versus-weighted comparison and radius/eligibility sensitivity are available in the core workflow.
+Enumeration supports at most 12 candidates and 20 demand zones. P1 includes timestamped Open-Meteo regional forecasts with cache/failure states, CSV and print export, radius and equal-weight sensitivity, and documented geographic pilot import with optional Leaflet/OSM maps. The illustrative fixture stays on its schematic map.
+
+P2 separates public facilities from planning proposals. Only permitted, public-access facilities with current verification can appear. Search, hours, accessibility, capacity information, location links, optional maps, general WHO-linked safety advice and a manual 112 link are implemented. Expired or invalid records are withheld. The shipped directory is intentionally empty; software validation does not establish real-world truth. Follow the [data contract and publication workflow](public/data/README.md) before importing or publishing actual records. Imported pilots stay in session memory and never publish themselves to the directory.
+
+No accounts, sensors, automatic emergency dispatch, resident tracking, routing engine or backend services are added. Capacity is informational, not a solver constraint. See [dossier reconciliation](docs/DOSSIER_RECONCILIATION.md) for how the Word document informed this release.
 
 ## Hosting and release status
 

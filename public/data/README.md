@@ -18,7 +18,7 @@ The JSON object has these required fields:
 
 All IDs must be globally unique. Latitude is between -85 and 85 and longitude between -180 and 180. Every point must lie within 5 km of `origin`, under the documented local projection. The engine uses an approximate local meter plane for coverage; Leaflet displays the source WGS84 coordinates. Neither is a walking route.
 
-Every zone/site includes `evidence` with six required nonempty fields:
+Every zone/site includes `evidence` with five required nonempty fields:
 
 ```json
 {
