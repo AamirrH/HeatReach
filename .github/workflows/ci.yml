@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly dependency advisory check, Mondays 06:00 UTC.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+# A newer push to the same branch makes an in-flight run obsolete.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Typecheck, tests, build
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # package.json requires >=22.12.0.
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Formatting
+        run: npm run format:check
+
+      - name: Strict TypeScript
+        run: npm run typecheck
+
+      - name: Domain and React tests
+        run: npm test
+
+      # Runs typecheck again via the build script; keeps the published
+      # output identical to what `npm run build` produces locally.
+      - name: Production build
+        run: npm run build
+
+      # dist/ is gitignored, so this is the only cross-platform way to get
+      # an Amplify-ready archive without the Windows-only package script.
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: heatreach-dist-${{ github.sha }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 14
+
+  e2e:
+    name: Browser workflows
+    if: github.event_name != 'schedule'
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # playwright.config.ts pins channel: msedge. Edge ships for Linux, so
+      # the pinned channel is installed rather than silently swapped for
+      # Chromium, which would change what the suite actually exercises.
+      - name: Install Edge
+        run: npx playwright install msedge
+
+      # The config's webServer block builds nothing, so preview needs dist/.
+      - name: Production build
+        run: npm run build
+
+      - name: Playwright
+        run: npm run test:e2e
+
+      - name: Upload failure report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.sha }}
+          path: |
+            playwright-report
+            test-results
+          if-no-files-found: ignore
+          retention-days: 14
+
+  audit:
+    name: Dependency advisories
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Deliberately not in `checks`: a new advisory published upstream would
+      # otherwise turn unrelated pull requests red.
+      - name: npm audit
+        run: npm audit --audit-level=high
