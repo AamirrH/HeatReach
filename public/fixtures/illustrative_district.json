@@ -1,0 +1,35 @@
+{
+  "id": "illustrative-district-v1",
+  "name": "Illustrative District (fictional scenario)",
+  "mode": "illustrative",
+  "description": "Fully synthetic coordinates, residents, risk weights and station placements. Do not map these locations onto an actual city or present them as operating facilities.",
+  "coordinateSystem": "local-meters",
+  "dataAsOf": "2026-10-11",
+  "radiusMeters": 180,
+  "budgetUnits": 2,
+  "maxNewSites": 2,
+  "weatherLocation": {"label": "Nagpur regional weather (context only)", "latitude": 21.1458, "longitude": 79.0882},
+  "zones": [
+    {"id":"Z1","name":"Zone 1","x":0,"y":0,"estimatedPopulation":420,"vulnerabilityWeight":1.8,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z2","name":"Zone 2","x":250,"y":0,"estimatedPopulation":300,"vulnerabilityWeight":1.2,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z3","name":"Zone 3","x":500,"y":0,"estimatedPopulation":380,"vulnerabilityWeight":1.6,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z4","name":"Zone 4","x":750,"y":0,"estimatedPopulation":260,"vulnerabilityWeight":1.4,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z5","name":"Zone 5","x":0,"y":250,"estimatedPopulation":220,"vulnerabilityWeight":2,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z6","name":"Zone 6","x":250,"y":250,"estimatedPopulation":450,"vulnerabilityWeight":1.3,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z7","name":"Zone 7","x":500,"y":250,"estimatedPopulation":320,"vulnerabilityWeight":1.9,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"},
+    {"id":"Z8","name":"Zone 8","x":750,"y":250,"estimatedPopulation":360,"vulnerabilityWeight":1.5,"provenance":"illustrative","vulnerabilityBasis":"Synthetic test weight"}
+  ],
+  "sites": [
+    {"id":"X1","name":"Example Existing Station 1","x":0,"y":0,"kind":"existing","status":"illustrative_existing","eligible":false,"costUnits":0,"provenance":"illustrative","verificationNote":"Fictional existing facility for demonstration"},
+    {"id":"X2","name":"Example Existing Station 2","x":750,"y":250,"kind":"existing","status":"illustrative_existing","eligible":false,"costUnits":0,"provenance":"illustrative","verificationNote":"Fictional existing facility for demonstration"},
+    {"id":"A","name":"Candidate A","x":100,"y":190,"kind":"candidate","status":"illustrative_candidate","eligible":true,"costUnits":1,"provenance":"illustrative","verificationNote":"Synthetic candidate; availability not confirmed"},
+    {"id":"B","name":"Candidate B","x":250,"y":150,"kind":"candidate","status":"illustrative_candidate","eligible":true,"costUnits":1,"provenance":"illustrative","verificationNote":"Synthetic candidate; availability not confirmed"},
+    {"id":"C","name":"Candidate C","x":500,"y":150,"kind":"candidate","status":"illustrative_candidate","eligible":true,"costUnits":1,"provenance":"illustrative","verificationNote":"Synthetic candidate; availability not confirmed"},
+    {"id":"D","name":"Candidate D","x":750,"y":0,"kind":"candidate","status":"illustrative_candidate","eligible":true,"costUnits":1,"provenance":"illustrative","verificationNote":"Synthetic candidate; availability not confirmed"},
+    {"id":"E","name":"Candidate E","x":380,"y":130,"kind":"candidate","status":"illustrative_candidate","eligible":true,"costUnits":2,"provenance":"illustrative","verificationNote":"Synthetic candidate; availability not confirmed"}
+  ],
+  "sourceManifest": [
+    {"label":"All demand, geometry and facilities","type":"illustrative","sourceUrl":null,"note":"Purpose-built synthetic fixture for algorithm verification; NOT actual population or cooling center data."},
+    {"label":"Nagpur regional weather","type":"modelled","sourceUrl":"https://open-meteo.com/en/docs","note":"Optional weather context; does not create street-level heat risk or modify fixture scores."}
+  ]
+}
